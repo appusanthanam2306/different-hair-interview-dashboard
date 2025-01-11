@@ -27,11 +27,10 @@
 body {
   display: grid;
   grid-template-columns: 15rem 3fr;
-  grid-template-rows: 1fr 7fr 1fr;
+  /* grid-template-rows: 1fr 7fr; */
   grid-template-areas:
     "aside header"
-    "aside main"
-    "aside footer";
+    "aside main";
   gap: 0.75rem 1.5rem;
   margin: 0%;
   padding: 0%;
@@ -52,7 +51,7 @@ header {
 main {
   grid-area: main;
   gap: 10px;
-  margin-right: 1.5rem;
+  margin: 1rem 1.5rem 0 0;
 }
 .count-card-section {
   display: flex;
@@ -95,7 +94,7 @@ main {
   /* justify-content: center; */
   align-items: flex-start;
   gap: 1em;
-  margin: 1rem 0 0;
+  margin: 1rem 0 2rem;
 }
 
 .information-section .action-section {
@@ -113,6 +112,49 @@ main {
   cursor: pointer;
   box-shadow: var(--card-box-shadow);
   padding: 0.8rem;
+}
+
+.chart-progress-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.chart-progress {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #ffffff 0% 1%,
+    var(--accent-color) 1% 33%,
+    #ffffff 33% 34%,
+    var(--grey-600) 34% 66%,
+    #ffffff 66% 67%,
+    #000000 67% 100%
+  );
+}
+
+.chart-progress::before {
+  content: "2923";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  z-index: 2;
+}
+
+.chart-progress::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #ffffff;
 }
 
 .information-section .title-action-card h5,
@@ -281,6 +323,10 @@ aside {
   background-color: var(--primary-color);
   color: #ffffff;
   padding: 1rem;
+  max-height: 100vh;
+  overflow-y: scroll;
+  position: sticky;
+  top: 0;
 }
 
 .logo-section {
@@ -382,6 +428,38 @@ aside {
   /* padding: 0.8em 2em; */
 }
 
+.progress-ring {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--accent-color) 0 80%,
+    var(--grey-200) 80% 100%
+  );
+}
+
+.progress-ring::before {
+  content: "80%";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  z-index: 2;
+}
+
+.progress-ring::after {
+  content: "";
+  position: absolute;
+  top: 7.5px;
+  left: 7.5px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary-color);
+}
+
 /* outer need to remove */
 
 .outer {
@@ -412,10 +490,10 @@ aside {
   border-radius: 10px;
 }
 
-/* ul {
+ul {
   list-style: none;
   padding: 0;
-} */
+}
 
 /* Fonts */
 
@@ -531,6 +609,37 @@ a.btn {
   background-color: var(--warning-dark);
 }
 
+.avatar > img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  line-height: 2rem;
+  display: inline-block;
+}
+
+.avatar-icon {
+  align-self: flex-start;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+  border-top: 1px solid var(--grey-100);
+  padding: 1rem 0;
+}
+
+.avatar-description p:first-child {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.avatar-description p:last-child {
+  font-size: 0.65rem;
+  font-weight: 200;
+}
+
 hr {
   background-color: var(--grey-300);
   margin: 0;
@@ -539,6 +648,9 @@ hr {
   border: none;
 }
 
+.m-0 {
+  margin: 0;
+}
 .m-1 {
   margin: 0.5rem;
 }
@@ -626,6 +738,7 @@ hr {
 @media screen and (min-width: 1200px) {
   .container {
     width: 1000px;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

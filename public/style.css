@@ -55,7 +55,6 @@ main {
 }
 .count-card-section {
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   gap: 1em;
@@ -740,5 +739,46 @@ hr {
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    grid-template-columns: 0 3fr;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  aside {
+    padding: 0;
+  }
+
+  .count-card-section,
+  .information-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .count-card-section .count-card {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 850px) {
+  .count-card-section .count-card {
+    flex-basis: 48%;
+  }
+  .information-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
   }
 }
